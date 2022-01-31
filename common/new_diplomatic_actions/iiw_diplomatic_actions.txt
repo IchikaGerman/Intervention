@@ -77,7 +77,7 @@ intervene_war = {
 				}
 			}
 		}
-		FROM = {
+		PREV = {
 			power_projection = 30
 			prestige = 50
 		}
