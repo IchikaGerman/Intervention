@@ -1,0 +1,98 @@
+intervene_war = {
+    category = great_powers
+
+    alert_index = 40
+    alert_tooltip = intervene_war_alert_tooltip
+
+    require_acceptance = no # Whether the recipient gets an option to decline
+
+    is_visible = {
+		is_great_power = yes
+    }
+    is_allowed = {
+		is_great_power = yes
+		FROM = {
+			custom_tooltip = iiw_intervene_war_tt
+			hidden_trigger = {
+				OR = {
+					AND = {
+						PREV = {
+							religion_group = christian
+						}
+						FROM = {
+							religion_group = christian
+						}
+					}
+					AND = {
+						PREV = {
+							religion_group = muslim
+						}
+						FROM = {
+							religion_group = muslim
+						}
+					}
+					AND = {
+						PREV = {
+							religion_group = eastern
+						}
+						FROM = {
+							religion_group = eastern
+						}
+					}
+					AND = {
+						PREV = {
+							religion_group = dharmic
+						}
+						FROM = {
+							religion_group = dharmic
+						}
+					}
+					AND = {
+						PREV = {
+							religion_group = pagan
+						}
+						FROM = {
+							religion_group = pagan
+						}
+					}
+					AND = {
+						PREV = {
+							religion_group = jewish_group
+						}
+						FROM = {
+							religion_group = jewish_group
+						}
+					}
+					AND = {
+						PREV = {
+							religion_group = zoroastrian_group
+						}
+						FROM = {
+							religion_group = zoroastrian_group
+						}
+					}
+				}
+			}
+			AND = {
+				PREV = {
+					is_at_war = no
+				}
+				is_at_war = yes
+				NOT = {
+					war_with = ROOT
+				}
+			}
+		}
+    }
+    on_accept = {
+		join_all_offensive_wars_of = FROM
+		PREV = {
+			add_prestige = -15
+			add_stability = -1
+
+		}
+    }
+    ai_will_do = { 
+		always = no
+    }
+}

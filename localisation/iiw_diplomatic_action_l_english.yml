@@ -1,0 +1,5 @@
+﻿l_english:
+ intervene_war_title: "Intervene in War"
+ intervene_war_desc: "Intervene in [From.GetName] active wars."
+ intervene_war_tooltip: "Protect them from their enemies."
+ iiw_intervene_war_tt: "§RYou must share Religious Group§!."
