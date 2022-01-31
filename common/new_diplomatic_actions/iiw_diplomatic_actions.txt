@@ -78,7 +78,7 @@ intervene_war = {
 			}
 		}
 		PREV = {
-			#power_projection = 30
+			power_projection = 30
 			prestige = 50
 		}
 		AND = {
