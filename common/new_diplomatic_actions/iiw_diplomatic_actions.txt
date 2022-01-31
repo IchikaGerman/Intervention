@@ -87,6 +87,9 @@ intervene_war = {
 			}
 			FROM = { # Target
 				is_at_war = yes
+				is_in_war = {
+					defenders = FROM
+				}
 			}
 			NOT = {
 				war_with = PREV
