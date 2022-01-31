@@ -1,8 +1,8 @@
-version="0.1"
+version="0.2"
 tags={
 	"Military"
 	"Utilities"
 	"Events"
 }
 name="EU4 Intervention Mod"
-supported_version="1.32.2"
+supported_version="1.32.*"

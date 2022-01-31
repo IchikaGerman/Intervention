@@ -9,89 +9,100 @@ intervene_war = {
     is_visible = {
 		is_great_power = yes
     }
+
     is_allowed = {
 		is_great_power = yes
-		FROM = {
-			custom_tooltip = iiw_intervene_war_tt
-			hidden_trigger = {
-				OR = {
-					AND = {
-						PREV = {
-							religion_group = christian
+		custom_trigger_tooltip = {
+			tooltip = iiw_intervene_war_tt
+			FROM = {
+				hidden_trigger = {
+					OR = {
+						AND = {
+							PREV = {
+								religion_group = christian
+							}
+							FROM = {
+								religion_group = christian
+							}
 						}
-						FROM = {
-							religion_group = christian
+						AND = {
+							PREV = {
+								religion_group = muslim
+							}
+							FROM = {
+								religion_group = muslim
+							}
+						}
+						AND = {
+							PREV = {
+								religion_group = eastern
+							}
+							FROM = {
+								religion_group = eastern
+							}
+						}
+						AND = {
+							PREV = {
+								religion_group = dharmic
+							}
+							FROM = {
+								religion_group = dharmic
+							}
+						}
+						AND = {
+							PREV = {
+								religion_group = pagan
+							}
+							FROM = {
+								religion_group = pagan
+							}
+						}
+						AND = {
+							PREV = {
+								religion_group = jewish_group
+							}
+							FROM = {
+								religion_group = jewish_group
+							}
+						}
+						AND = {
+							PREV = {
+								religion_group = zoroastrian_group
+							}
+							FROM = {
+								religion_group = zoroastrian_group
+							}
 						}
 					}
-					AND = {
-						PREV = {
-							religion_group = muslim
-						}
-						FROM = {
-							religion_group = muslim
-						}
-					}
-					AND = {
-						PREV = {
-							religion_group = eastern
-						}
-						FROM = {
-							religion_group = eastern
-						}
-					}
-					AND = {
-						PREV = {
-							religion_group = dharmic
-						}
-						FROM = {
-							religion_group = dharmic
-						}
-					}
-					AND = {
-						PREV = {
-							religion_group = pagan
-						}
-						FROM = {
-							religion_group = pagan
-						}
-					}
-					AND = {
-						PREV = {
-							religion_group = jewish_group
-						}
-						FROM = {
-							religion_group = jewish_group
-						}
-					}
-					AND = {
-						PREV = {
-							religion_group = zoroastrian_group
-						}
-						FROM = {
-							religion_group = zoroastrian_group
-						}
-					}
-				}
-			}
-			AND = {
-				PREV = {
-					is_at_war = no
-				}
-				is_at_war = yes
-				NOT = {
-					war_with = ROOT
 				}
 			}
 		}
-    }
+		FROM = {
+			power_projection = 30
+			prestige = 50
+		}
+		AND = {
+			PREV = { # Sender
+				is_at_war = no
+			}
+			FROM = { # Target
+				is_at_war = yes
+			}
+			NOT = {
+				war_with = PREV
+			}
+		}
+	}
+	
     on_accept = {
-		join_all_offensive_wars_of = FROM
 		PREV = {
-			add_prestige = -15
+			join_all_defensive_wars_of = FROM
+			add_prestige = -25
 			add_stability = -1
 
 		}
     }
+
     ai_will_do = { 
 		always = no
     }
