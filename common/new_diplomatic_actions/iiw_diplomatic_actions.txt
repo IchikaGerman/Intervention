@@ -78,7 +78,7 @@ intervene_war = {
 			}
 		}
 		PREV = {
-			# power_projection = 30
+			power_projection = 40
 			prestige = 50
 		}
 		AND = {
@@ -101,28 +101,18 @@ intervene_war = {
 		PREV = {
 			if = { # if limit is what I was trying to think of but wasnt sure if it worked in on_accept scope, it does though, I will explain this later if confusing
 				limit = { # FROM has at least 190 opinion of PREV
-					AND = { # We want both NOT and has_opinion to be true, so that country flags and opinion are both true
-						NOT = { # Check that PREV has not received negative effects from lower opinion
-							OR = {
-								has_country_flag = joined_defensive_war_2
-								has_country_flag = joined_defensive_war_3
-								has_country_flag = joined_defensive_war_4
-							}
-						}
-						FROM = { # Because we are in the PREV scope currently, we must switch to FROM, and then check PREV opinion
-							has_opinion = {
-								who = PREV
-								value = 190
-							}
+					FROM = { # Because we are in the PREV scope currently, we must switch to FROM, and then check PREV opinion
+						has_opinion = {
+							who = PREV
+							value = 190
 						}
 					}
 				}
-				set_country_flag = joined_defensive_war_1 # Set Country Flag to stop stacking effects
 				join_all_defensive_wars_of = FROM
 				FROM = { # Same as opinion, switch from PREV to FROM and change trust of PREV
 					add_trust = {
 						who = PREV
-						value = -30
+						value = 30
 						mutual = no # Applies only to nation that you intervened with
 					}
 				}
@@ -130,28 +120,18 @@ intervene_war = {
 			}
 			if = {
 				limit = { # FROM has at least 100 opinion of PREV
-					AND = {
-						NOT = { # Check that PREV has not received negative effects from lower opinion
-							OR = {
-								has_country_flag = joined_defensive_war_1
-								has_country_flag = joined_defensive_war_3
-								has_country_flag = joined_defensive_war_4
-							}
-						}
-						FROM = { # Because we are in the PREV scope currently, we must switch to FROM, and then check PREV opinion
-							has_opinion = {
-								who = PREV
-								value = 100
-							}
+					FROM = { # Because we are in the PREV scope currently, we must switch to FROM, and then check PREV opinion
+						has_opinion = {
+							who = PREV
+							value = 100
 						}
 					}
 				}
-				set_country_flag = joined_defensive_war_2 # Set Country Flag to stop stacking effects
 				join_all_defensive_wars_of = FROM
 				FROM = { # Same as opinion, switch from PREV to FROM and change trust of PREV
 					add_trust = {
 						who = PREV
-						value = -20
+						value = 20
 						mutual = no # Applies only to nation that you intervened with
 					}
 				}
@@ -159,28 +139,18 @@ intervene_war = {
 			}
 			if = {
 				limit = { # FROM has at least 0 opinion of PREV
-					AND = {
-						NOT = { # Check that PREV has not received negative effects from lower opinion
-							OR = {
-								has_country_flag = joined_defensive_war_1
-								has_country_flag = joined_defensive_war_2
-								has_country_flag = joined_defensive_war_4
-							}
+					FROM = { # Because we are in the PREV scope currently, we must switch to FROM, and then check PREV opinion
+						has_opinion = {
+							who = PREV
+							value = 0
 						}
-						FROM = { # Because we are in the PREV scope currently, we must switch to FROM, and then check PREV opinion
-							has_opinion = {
-								who = PREV
-								value = 0
-							}
-						}
-					}
+				    }
 				}
-				set_country_flag = joined_defensive_war_2 # Set Country Flag to stop stacking effects
 				join_all_defensive_wars_of = FROM
 				FROM = { # Same as opinion, switch from PREV to FROM and change trust of PREV
 					add_trust = {
 						who = PREV
-						value = -10
+						value = 10
 						mutual = no # Applies only to nation that you intervened with
 					}
 				}
@@ -189,23 +159,21 @@ intervene_war = {
 			}
 			if = {
 				limit = {
-					AND = {
-						NOT = {
-							OR = {
-								has_country_flag = joined_defensive_war_1
-								has_country_flag = joined_defensive_war_2
-								has_country_flag = joined_defensive_war_3
-							}
-						}
-						FROM = {
-							has_opinion = {
-								who = PREV
-								value = -200
-							}
+					FROM = {
+						has_opinion = {
+							who = PREV
+							value = -200
 						}
 					}
 				}
-				set_country_flag = joined_defensive_war_4
+				join_all_defensive_wars_of = FROM
+				FROM = { # Same as opinion, switch from PREV to FROM and change trust of PREV
+					add_trust = {
+						who = PREV
+						value = 10
+						mutual = no # Applies only to nation that you intervened with
+					}
+				}
 				join_all_defensive_wars_of = FROM
 				add_prestige = -35
 				add_stability = -1
@@ -214,11 +182,6 @@ intervene_war = {
 				join_all_defensive_wars_of = FROM
 				add_prestige = 5
 			}
-			# TODO: add 0 to cover 0-49, and -1 to -200 to cover all or just add 0-49
-			# Clear country flags, they are no longer needed and this would block further use of the intervene action if they were not cleared
-			clr_country_flag = joined_defensive_war_1
-			clr_country_flag = joined_defensive_war_2
-			clr_country_flag = joined_defensive_war_3
 		}
     }
     ai_will_do = { 
