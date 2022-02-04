@@ -1,0 +1,5 @@
+﻿l_english:
+ intervene_war_title: "Intervene in Defensive War"
+ intervene_war_desc: "We can intervene in all [From.GetAdjective] wars to protect them from hostile countries currently at war with them.\n\n§YWe will lose more prestige and stability if they have horrible relations with us§!\n\n§R-200§! Relations to §R-1§!\n§R-35§! Prestiege \n§R-1§! Stability\n\n§Y0§! Relations to §G99§!\n§R-25§! Prestiege \n§R-1§! Stability\n\n§G100§! Relations to §G189§!\n§R-25§! Prestige\n\n§G190§! Relations to §G200§!\n§R-10§! Prestige"
+ intervene_war_tooltip: "We will help them out against any hostile countries at war with [From.GetName]."
+ iiw_intervene_war_tt: "You must share Religious Group."
