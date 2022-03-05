@@ -5,5 +5,5 @@ tags={
 	"Events"
 }
 name="Intervene in War: Rework"
-supported_version="1.32.*"
+supported_version="1.33.*"
 remote_file_id="2737720112"
